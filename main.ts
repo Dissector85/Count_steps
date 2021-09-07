@@ -11,6 +11,15 @@ basic.forever(function () {
     if (input.acceleration(Dimension.Strength) > 1500) {
         step += 1
         music.playTone(262, music.beat(BeatFraction.Sixteenth))
-        radio.sendString("" + (step))
+        radio.sendNumber(step)
+        basic.showString("" + (step))
+    }
+})
+basic.forever(function () {
+    if (input.logoIsPressed()) {
+        step += -1
+        music.playTone(294, music.beat(BeatFraction.Sixteenth))
+        radio.sendNumber(step)
+        basic.showString("" + (step))
     }
 })
